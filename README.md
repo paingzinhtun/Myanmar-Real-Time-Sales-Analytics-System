@@ -4,6 +4,30 @@ Myanmar Real-Time Sales Analytics System is a portfolio-grade streaming data eng
 
 This project is intentionally designed as the next step after a batch-oriented data platform. Instead of focusing on scheduled pipelines, medallion layers, or Airflow orchestration, it focuses on event-driven ingestion, Kafka-based streaming, continuous validation, duplicate handling, rolling 5-minute analytics, and live serving tables in PostgreSQL.
 
+## Table Of Contents
+
+1. [Why This Project Matters](#why-this-project-matters)
+2. [Executive Summary](#executive-summary)
+3. [Portfolio Positioning](#portfolio-positioning)
+4. [What This Project Is About](#what-this-project-is-about)
+5. [Real-World Value](#real-world-value)
+6. [How This Project Helps Data Engineering Aspirants](#how-this-project-helps-data-engineering-aspirants)
+7. [Skills And Technology Stack](#skills-and-technology-stack)
+8. [Key Engineering Concepts Demonstrated](#key-engineering-concepts-demonstrated)
+9. [How This Project Differs From A Batch Platform](#how-this-project-differs-from-a-batch-platform)
+10. [End-to-End Architecture](#end-to-end-architecture)
+11. [Kafka Topic Design](#kafka-topic-design)
+12. [Event Schema](#event-schema)
+13. [PostgreSQL Serving Schema](#postgresql-serving-schema)
+14. [Project Structure](#project-structure)
+15. [Run The Project Locally](#run-the-project-locally)
+16. [Example Validation Queries](#example-validation-queries)
+17. [Dashboard And Demo Suggestions](#dashboard-and-demo-suggestions)
+18. [What Interviewers Can Ask You About](#what-interviewers-can-ask-you-about)
+19. [Key Learning Outcomes](#key-learning-outcomes)
+20. [Future Improvements](#future-improvements)
+21. [Conclusion](#conclusion)
+
 ## Why This Project Matters
 
 Modern businesses do not always want to wait for an hourly or daily batch job to understand what is happening. A retail operations team may want to know right now:
@@ -15,6 +39,8 @@ Modern businesses do not always want to wait for an hourly or daily batch job to
 - whether suspicious, invalid, or duplicate events are entering the pipeline
 
 This project shows how a data engineer can build that kind of visibility with a practical local stack that is easy to understand, easy to demo, and strong enough for a portfolio.
+
+[Back to Top](#myanmar-real-time-sales-analytics-system)
 
 ## Executive Summary
 
@@ -30,6 +56,8 @@ This system simulates Myanmar retail sales traffic and turns raw events into nea
 
 The result is a compact end-to-end streaming platform that demonstrates modern data engineering patterns beyond batch ETL.
 
+[Back to Top](#myanmar-real-time-sales-analytics-system)
+
 ## Portfolio Positioning
 
 This project is meant to complement a previous project called `Myanmar E-commerce Batch Data Platform at Scale`.
@@ -40,6 +68,8 @@ Together, the two projects create a stronger progression:
 - this streaming project demonstrates event-driven architecture, Kafka ingestion, low-latency processing, deduplication, fault-tolerance basics, and operational analytics
 
 That makes your portfolio look intentional. It shows that you understand both historical analytics pipelines and live event-processing systems.
+
+[Back to Top](#myanmar-real-time-sales-analytics-system)
 
 ## What This Project Is About
 
@@ -55,6 +85,8 @@ The system models a realistic local business context using:
 - locally relevant retail products and categories
 
 This makes the project feel business-aware instead of synthetic in a generic way.
+
+[Back to Top](#myanmar-real-time-sales-analytics-system)
 
 ## Real-World Value
 
@@ -75,6 +107,8 @@ In production, a system like this could support:
 - product and growth teams measuring promotion effects in near real time
 - engineering teams monitoring ingestion quality and event health
 
+[Back to Top](#myanmar-real-time-sales-analytics-system)
+
 ## How This Project Helps Data Engineering Aspirants
 
 For aspiring data engineers, this project is valuable because it teaches the parts of data engineering that are often missing from batch-only portfolios.
@@ -92,6 +126,8 @@ It helps build practical understanding of:
 - dashboard-ready serving table design
 
 It also helps you learn how to explain streaming architecture in interviews using concrete examples rather than theory alone.
+
+[Back to Top](#myanmar-real-time-sales-analytics-system)
 
 ## Skills And Technology Stack
 
@@ -187,6 +223,8 @@ The `logging` module is used for:
 - debugging
 - operational observability during runs
 
+[Back to Top](#myanmar-real-time-sales-analytics-system)
+
 ## Key Engineering Concepts Demonstrated
 
 - event-driven architecture
@@ -199,6 +237,8 @@ The `logging` module is used for:
 - near-real-time analytics serving
 - audit logging
 - restart-friendly pipeline behavior
+
+[Back to Top](#myanmar-real-time-sales-analytics-system)
 
 ## How This Project Differs From A Batch Platform
 
@@ -223,6 +263,8 @@ This project is intentionally not framed as another batch pipeline.
 - operational analytics dashboard
 
 That difference is the whole point. This project proves streaming capability rather than repeating batch architecture.
+
+[Back to Top](#myanmar-real-time-sales-analytics-system)
 
 ## End-to-End Architecture
 
@@ -258,6 +300,8 @@ PostgreSQL serving tables
 Streamlit dashboard
 ```
 
+[Back to Top](#myanmar-real-time-sales-analytics-system)
+
 ## Kafka Topic Design
 
 - Main topic: `mm.retail.sales.events.v1`
@@ -270,6 +314,8 @@ Why this matters:
 - `store_id` keeps related store events relatively ordered
 - a dedicated rejected topic makes bad-event handling explicit
 - versioned topic naming supports future schema evolution
+
+[Back to Top](#myanmar-real-time-sales-analytics-system)
 
 ## Event Schema
 
@@ -304,6 +350,8 @@ Validation covers:
 - invalid currency code
 - malformed JSON payloads
 
+[Back to Top](#myanmar-real-time-sales-analytics-system)
+
 ## PostgreSQL Serving Schema
 
 Core tables:
@@ -322,6 +370,8 @@ Why these tables matter:
 - clean tables provide trusted events
 - aggregated tables keep dashboard queries fast
 - audit logs improve traceability and operational understanding
+
+[Back to Top](#myanmar-real-time-sales-analytics-system)
 
 ## Project Structure
 
@@ -374,6 +424,8 @@ myanmar-realtime-sales-analytics/
 |-- requirements.txt
 `-- README.md
 ```
+
+[Back to Top](#myanmar-real-time-sales-analytics-system)
 
 ## Run The Project Locally
 
@@ -431,6 +483,8 @@ Kafka UI:
 
 - `http://localhost:8080`
 
+[Back to Top](#myanmar-real-time-sales-analytics-system)
+
 ## Example Validation Queries
 
 Use these queries to confirm the pipeline is working:
@@ -445,6 +499,8 @@ SELECT validation_status, COUNT(*)
 FROM sales_events_raw
 GROUP BY validation_status;
 ```
+
+[Back to Top](#myanmar-real-time-sales-analytics-system)
 
 ## Dashboard And Demo Suggestions
 
@@ -462,6 +518,8 @@ Suggested screenshot folder:
 - `docs/screenshots/kafka-ui-topics.png`
 - `docs/screenshots/postgres-metrics.png`
 
+[Back to Top](#myanmar-real-time-sales-analytics-system)
+
 ## What Interviewers Can Ask You About
 
 This project prepares you well for explaining:
@@ -475,6 +533,8 @@ This project prepares you well for explaining:
 - how rolling windows differ from batch aggregations
 - how this architecture differs from Airflow-centered ETL
 
+[Back to Top](#myanmar-real-time-sales-analytics-system)
+
 ## Key Learning Outcomes
 
 By building this project, a data engineering learner gains practice in:
@@ -485,6 +545,8 @@ By building this project, a data engineering learner gains practice in:
 - building observable data systems
 - translating business needs into streaming metrics
 - documenting technical work in a portfolio-friendly way
+
+[Back to Top](#myanmar-real-time-sales-analytics-system)
 
 ## Future Improvements
 
@@ -498,8 +560,12 @@ Possible next upgrades:
 - add alerting for invalid-event spikes
 - store historical metric snapshots instead of only the latest serving view
 
+[Back to Top](#myanmar-real-time-sales-analytics-system)
+
 ## Conclusion
 
 Myanmar Real-Time Sales Analytics System is more than a demo dashboard. It is a strong learning and portfolio project that demonstrates how streaming data engineering works in practice: ingesting live events, protecting data quality, handling duplicates, producing near-real-time metrics, and serving insights to end users.
 
 For data engineering aspirants, it is valuable because it bridges the gap between batch project comfort and real-world streaming system thinking.
+
+[Back to Top](#myanmar-real-time-sales-analytics-system)
